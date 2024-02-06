@@ -10,6 +10,14 @@ import SnapKit
 
 class NoteViewCell: UITableViewCell {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let noteLabelTopOffset: CGFloat = 5
+        static let noteLabelBotOffst: CGFloat = -5
+        static let noteLabelHeight: CGFloat = 55
+    }
+    
     // MARK: - Model
     
     struct Model {
@@ -55,9 +63,9 @@ class NoteViewCell: UITableViewCell {
     
     private func addConstraints() {
         noteLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().offset(5)
-            make.bottom.trailing.equalToSuperview().offset(-5)
-            make.height.greaterThanOrEqualTo(44)
+            make.top.leading.equalToSuperview().offset(Constants.noteLabelTopOffset)
+            make.bottom.trailing.equalToSuperview().offset(Constants.noteLabelBotOffst)
+            make.height.greaterThanOrEqualTo(Constants.noteLabelHeight)
         }
     }
     

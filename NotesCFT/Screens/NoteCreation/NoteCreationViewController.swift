@@ -19,6 +19,21 @@ protocol INoteCreationView: AnyObject {
 
 class NoteCreationViewController: UIViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let newNoteTopOffset: CGFloat = 100
+        static let newNoteTrailingOffset: CGFloat = -35
+        static let newNoteLeadingOffset: CGFloat = 35
+        static let newNoteHeight: CGFloat = 70
+        
+        static let saveButtonTopOffset: CGFloat = 20
+        static let saveButtonTrailingOffset: CGFloat = -35
+        static let saveButtonLeadingOffset: CGFloat = 35
+        static let saveButtonHeight: CGFloat = 40
+        
+    }
+    
     
     // MARK: - Properties
     
@@ -76,16 +91,16 @@ class NoteCreationViewController: UIViewController {
     
     private func addConstaints() {
         newNoteTF.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.leading.equalToSuperview().offset(35)
-            make.trailing.equalToSuperview().offset(-35)
-            make.height.greaterThanOrEqualTo(70)
+            make.top.equalToSuperview().offset(Constants.newNoteTopOffset)
+            make.leading.equalToSuperview().offset(Constants.newNoteLeadingOffset)
+            make.trailing.equalToSuperview().offset(Constants.newNoteTrailingOffset)
+            make.height.greaterThanOrEqualTo(Constants.newNoteHeight)
         }
         saveButton.snp.makeConstraints { make in
-            make.top.equalTo(newNoteTF.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(35)
-            make.trailing.equalToSuperview().offset(-35)
-            make.height.equalTo(40)
+            make.top.equalTo(newNoteTF.snp.bottom).offset(Constants.saveButtonTopOffset)
+            make.leading.equalToSuperview().offset(Constants.saveButtonLeadingOffset)
+            make.trailing.equalToSuperview().offset(Constants.saveButtonTrailingOffset)
+            make.height.equalTo(Constants.saveButtonHeight)
         }
         
     }
